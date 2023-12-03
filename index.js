@@ -16,7 +16,8 @@ app.get("/",(req,res)=>{
 })
 app.get("/users",(req,res)=>{
   db.query('select * from students',[],(err,result)=>{
-    return res.json({"nom":"jouali","age":45})
+    console.log(result)
+    return res.json(result)
   })
   
 })
