@@ -10,6 +10,17 @@ db = mysql.createConnection({
   password: process.env.DB_PASSWORD,
   database: process.env.DB_DATABASE,
 })
+db.connect((error) => {
+  if (error) {
+    console.error('Erreur de connexion à la base de données :', error);
+    return;
+  }
+  console.log('Connexion à la base de données réussie !');
+  // Vous pouvez exécuter d'autres opérations sur la base de données ici
+  // ...
+  // N'oubliez pas de fermer la connexion lorsque vous avez terminé
+});
+
 app.use(express.json())
 app.use(cors())
 app.get("/",(req,res)=>{
